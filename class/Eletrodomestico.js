@@ -1,13 +1,17 @@
-const Dispositivo = require("./Dispositivo")
-
-class Eletrodomestico extends Dispositivo {
+class Eletrodomestico {
     constructor(nome, potencia, horasUso, ambiente) {
-        super(nome, potencia, horasUso)
+        this.nome = nome
+        this.potencia = potencia
+        this.horasUso = horasUso
         this.ambiente = ambiente
     }
 
+    consumoDiario() {
+        return this.potencia * this.horasUso
+    }
+
     descricao() {
-        return `O eletrodoméstico ${this.nome} no ambiente ${this.ambiente} consome ${this.calcularConsumoDiario().toFixed(2)} kWh por dia`
+        return `${this.nome} - Ambiente: ${this.ambiente}, Consumo diário: ${this.consumoDiario()} Wh`
     }
 }
 
