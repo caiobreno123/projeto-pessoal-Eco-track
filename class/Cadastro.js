@@ -1,16 +1,21 @@
 class Cadastro {
-    #dispositivos = []
-
-    adicionarDispositivo(dispositivo) {
-        this.#dispositivos.push(dispositivo)
+    constructor() {
+        this.dispositivos = []
     }
 
-    get dispositivos() {
-        return this.#dispositivos
+    adicionarDispositivo(dispositivo) {
+        this.dispositivos.push(dispositivo)
     }
 
     listarDispositivos() {
-        return this.#dispositivos.map(d => d.descricao()).join("\n")
+        let total = 0
+        const lista = this.dispositivos.map(d => {
+            const consumo = d.consumoDiario()
+            total += consumo
+            return d.descricao()
+        })
+        lista.push(`\nConsumo total diário: ${total} Wh`)
+        return lista.join("\n")
     }
 }
 
