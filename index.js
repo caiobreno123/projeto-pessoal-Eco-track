@@ -34,11 +34,11 @@ async function main() {
         const nomeFazenda = await pergunta("Nome da fazenda: ")
         const qtdPCs = Number(await pergunta("Quantidade de computadores: "))
         const potenciaPC = Number(await pergunta("Potência média por computador (W): "))
-        const horas = Number(await pergunta("Horas de uso por dia: "))
         const qtdGPUs = Number(await pergunta("Quantidade de placas de vídeo por computador: "))
         const potenciaGPU = Number(await pergunta("Potência de cada placa de vídeo (W): "))
         const qtdFontes = Number(await pergunta("Quantidade de fontes de alimentação por computador: "))
         const potenciaFonte = Number(await pergunta("Potência de cada fonte (W): "))
+        const horas = Number(await pergunta("Horas de uso por dia: "))
 
         const fazenda = DispositivoFactory.criar("fazendaAvancada", {
             nome: nomeFazenda,
