@@ -1,13 +1,22 @@
 const Eletrodomestico = require("./Eletrodomestico")
-const FazendaBitcoin = require("./FazendaBitcoin")
+const FazendaAvancada = require("./FazendaAvancada")
 
 class DispositivoFactory {
-    static criarEletrodomestico(nome, potencia, horasUso, ambiente) {
-        return new Eletrodomestico(nome, potencia, horasUso, ambiente)
-    }
-
-    static criarFazendaBitcoin(nome, potencia, horasUso, qtdMaquinas) {
-        return new FazendaBitcoin(nome, potencia, horasUso, qtdMaquinas)
+    static criar(tipo, dados) {
+        if (tipo === "eletrodomestico") {
+            return new Eletrodomestico(dados.nome, dados.potencia, dados.horasUso, dados.ambiente)
+        } else if (tipo === "fazendaAvancada") {
+            return new FazendaAvancada(
+                dados.nome,
+                dados.qtdPCs,
+                dados.potenciaPC,
+                dados.qtdGPUs,
+                dados.potenciaGPU,
+                dados.qtdFontes,
+                dados.potenciaFonte,
+                dados.horasUso
+            )
+        }
     }
 }
 
